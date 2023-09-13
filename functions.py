@@ -68,6 +68,10 @@ def speech_to_text(audio):
 
     
 def text_comparison(cloned_audio, original_text, nlp=nlp):
+    """
+    Returns Word Error Rate and similarity score between the texts 
+    generated from the real audio file and synthetic audio.
+    """
     cloned_text = speech_to_text(cloned_audio)
     transformation = jiwer.Compose([jiwer.ToLowerCase(),
                                     jiwer.RemoveWhiteSpace(replace_by_space=True),
